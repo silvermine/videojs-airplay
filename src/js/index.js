@@ -1,7 +1,7 @@
 'use strict';
 
-var createAirplayButton = require('./components/AirplayButton'),
-    createAirplayPlugin = require('./enableAirplay');
+var createAirPlayButton = require('./components/AirPlayButton'),
+    createAirPlayPlugin = require('./enableAirPlay');
 
 module.exports = function(videojs) {
    videojs = videojs || window.videojs;

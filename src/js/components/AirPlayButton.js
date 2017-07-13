@@ -1,19 +1,19 @@
 'use strict';
 
-var AirplayButton;
+var AirPlayButton;
 
-AirplayButton = {
+AirPlayButton = {
    constructor: function(options) {
       // TODO internationalization
-      this._buttonText = options.buttonText || 'Airplay';
+      this._buttonText = options.buttonText || 'AirPlay';
 
       this.constructor.super_.apply(this, arguments);
 
-      if (!this._hasAirplayAPISupport()) {
+      if (!this._hasAirPlayAPISupport()) {
          this.hide();
       }
 
-      this._reactToAirplayAvailableEvents();
+      this._reactToAirPlayAvailableEvents();
    },
 
    createControlTextEl: function(el) {
@@ -30,7 +30,7 @@ AirplayButton = {
    },
 
    handleClick: function() {
-      this.player().trigger('airplayRequested');
+      this.player().trigger('airPlayRequested');
    },
 
    _getMediaEl: function() {
@@ -39,15 +39,15 @@ AirplayButton = {
       return playerEl.querySelector('video, audio');
    },
 
-   _hasAirplayAPISupport: function() {
+   _hasAirPlayAPISupport: function() {
       return !!window.WebKitPlaybackTargetAvailabilityEvent;
    },
 
-   _reactToAirplayAvailableEvents: function() {
+   _reactToAirPlayAvailableEvents: function() {
       var mediaEl = this._getMediaEl(),
           self = this;
 
-      if (!mediaEl || !this._hasAirplayAPISupport()) {
+      if (!mediaEl || !this._hasAirPlayAPISupport()) {
          return;
       }
 
@@ -62,8 +62,8 @@ AirplayButton = {
 };
 
 module.exports = function(videojs) {
-   var AirplayButtonImpl;
+   var AirPlayButtonImpl;
 
-   AirplayButtonImpl = videojs.extend(videojs.getComponent('Button'), AirplayButton);
-   videojs.registerComponent('airplayButton', AirplayButtonImpl);
+   AirPlayButtonImpl = videojs.extend(videojs.getComponent('Button'), AirPlayButton);
+   videojs.registerComponent('airPlayButton', AirPlayButtonImpl);
 };
