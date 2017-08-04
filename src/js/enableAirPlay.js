@@ -1,8 +1,6 @@
 'use strict';
 
-function hasAirPlayAPISupport() {
-   return !!window.WebKitPlaybackTargetAvailabilityEvent;
-}
+var hasAirPlayAPISupport = require('./lib/hasAirPlayAPISupport');
 
 function getExistingAirPlayButton(player) {
    return player.controlBar.getChild('airPlayButton');

@@ -1,6 +1,7 @@
 'use strict';
 
-var AirPlayButton;
+var hasAirPlayAPISupport = require('../lib/hasAirPlayAPISupport'),
+    AirPlayButton;
 
 AirPlayButton = {
    constructor: function(options) {
@@ -9,7 +10,7 @@ AirPlayButton = {
 
       this.constructor.super_.apply(this, arguments);
 
-      if (!this._hasAirPlayAPISupport()) {
+      if (!hasAirPlayAPISupport()) {
          this.hide();
       }
 
@@ -39,15 +40,11 @@ AirPlayButton = {
       return playerEl.querySelector('video, audio');
    },
 
-   _hasAirPlayAPISupport: function() {
-      return !!window.WebKitPlaybackTargetAvailabilityEvent;
-   },
-
    _reactToAirPlayAvailableEvents: function() {
       var mediaEl = this._getMediaEl(),
           self = this;
 
-      if (!mediaEl || !this._hasAirPlayAPISupport()) {
+      if (!mediaEl || !hasAirPlayAPISupport()) {
          return;
       }
 
