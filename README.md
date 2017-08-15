@@ -1,4 +1,4 @@
-# Silvermine VideoJS AirPlay Plugin
+# Silvermine Video.js AirPlay Plugin
 
 [![Build Status](https://travis-ci.org/silvermine/videojs-airplay.png?branch=master)](https://travis-ci.org/silvermine/videojs-airplay)
 [![Coverage Status](https://coveralls.io/repos/github/silvermine/videojs-airplay/badge.svg?branch=master)](https://coveralls.io/github/silvermine/videojs-airplay?branch=master)
@@ -8,26 +8,147 @@
 
 ## What is it?
 
-A plugin for [videojs](http://videojs.com/) versions 6+ that adds a button to the control
-bar which will trigger AirPlay if it is available on the device.
-
+A plugin for [Video.js](http://videojs.com/) versions 6+ that adds a button to the control
+bar that will open the AirPlay menu if it is available on the user's device.
 
 ## How do I use it?
 
-Here's an example of how you can use this library:
+The `silvermine-videojs-airplay` plugin includes 3 types of assets: javascript, CSS and
+images.
+
+You can either build the plugin locally and use the assets that are output from the build
+process directly, or you can install the plugin as an npm module, include the
+javascript and SCSS source in your project using a Common-JS module loader and SASS build
+process, and copy the images from the image source folder to your project.
+
+### Building the plugin locally
+
+   1. Either clone this repository or install the `silvermine-videojs-airplay` module
+      using `npm install silvermine-videojs-airplay`.
+   2. Ensure that `silvermine-videojs-airplay`'s `devDependencies` are installed by
+      running `npm install` from within the `silvermine-videojs-airplay` folder.
+   3. Run `grunt build` to build and copy the javascript, CSS and image files to the
+      `silvermine-videojs-airplay/dist` folder.
+   4. Copy the plugin's files from the `dist` folder into your project as needed.
+   5. Ensure that the images in the `dist/images` folder are accessible at `./images/`,
+      relative to where the plugin's CSS is located. If, for example, your CSS is located
+      at `https://example.com/plugins/silvermine-videojs-airplay.css`, then the plugin's
+      images should be located at `https://example.com/plugins/images/`.
+
+Note: when adding the plugin's javascript to your web page, include the `silvermine-
+videojs-airplay.min.js` javascript file in your HTML *after* loading Video.js. The
+plugin's built javascript file expects there to be a reference to Video.js at
+`window.videojs` and will throw an error if it does not exist.
+
+After both Video.js and `silvermine-videojs-airplay` have loaded, follow the steps in the
+"Configuration" section below.
+
+
+### Configuration
+
+Once the plugin has been loaded and registered, configure it and add it to your Video.js
+player using Video.js' plugin configuration option (see the section under the heading
+"Setting up a Plugin" on [Video.js' plugin documentation page][videojs-docs].
+
+For example:
 
 ```js
+var options;
+
+options = {
+   controls: true,
+   plugins: {
+      airPlay: {
+         buttonText: 'AirPlay',
+      }
+   }
+};
+
+videojs(document.getElementById('myVideoElement'), options);
 ```
+
+Please note that even if you choose not to use any of the configuration options, you must
+either provide an `airPlay` entry in the `plugins` option for Video.js to initialize the
+plugin for you:
+
+```js
+options = {
+   plugins: {
+      airPlay: {}
+   }
+};
+```
+
+or you must initialize the plugin manually:
+
+```js
+var player = videojs(document.getElementById('myVideoElement'));
+
+player.airPlay(); // initializes the AirPlay plugin
+```
+
+#### Configuration options
+
+* **`buttonText`** - the text to display inside of the button component. The text defaults
+to "AirPlay" and is used for accessibility purposes, so it is visually hidden by default.
+
+### Using the npm module
+
+If you are using a module loader such as Browserify or Webpack, first install
+`silvermine-videojs-airplay` using `npm install`. Then, use
+`require('silvermine-videojs-airplay')` to require `silvermine-videojs-airplay` into your
+project's source code. `require('silvermine-videojs-airplay')` returns a function that
+you can use to register the plugin with videojs by passing in a reference to `videojs`:
+
+```js
+   var videojs = require('video.js');
+
+   // Initialize the AirPlay plugin
+   require('silvermine-videojs-airplay')(videojs);
+```
+
+Then, follow the steps in the "Configuration" section above.
+
+### Using the CSS and images
+
+If you are using SCSS in your project, you can simply reference the plugin's main SCSS
+file in your project's SCSS:
+
+```scss
+@import "path/to/node_modules/silvermine-videojs-airplay/src/scss/videojs-airplay";
+```
+
+Optionally, you can override the SCSS variables that contain the paths to the icon
+image files:
+
+* **`$icon-airplay--default`** - the path to the icon image that is displayed when the
+  AirPlay button is in its normal, default state. Defaults to
+  `"images/ic_airplay_white_24px.svg"`.
+* **`$icon-airplay--hover`** - the path to the icon image that is displayed when the user
+  hovers over the AirPlay button. Defaults to `"images/ic_airplay_white_24px.svg"`.
+* **``$airplay-icon-size`** - the width and height of the icon (the button and icon is a
+  square). Defaults to `12px`.
+
+#### Images
+
+The plugin's images are located at `silvermine-videojs-airplay/src/images`. If you have
+not overridden the icon image path variables in the SCSS, then copy the images from the
+`src/images` folder to a folder that is accessible at `./images/`, relative to where the
+plugin's CSS is located. If, for example, your CSS is located at
+`https://example.com/plugins/silvermine-videojs-airplay.css`, then the plugin's images
+should be located at `https://example.com/plugins/images/`.
 
 
 ## How do I contribute?
 
 We genuinely appreciate external contributions. See [our extensive
-documentation](https://github.com/silvermine/silvermine-info#contributing) on how to
-contribute.
+documentation][contributing] on how to contribute.
 
 
 ## License
 
 This software is released under the MIT license. See [the license file](LICENSE) for more
 details.
+
+[videojs-docs]: http://docs.videojs.com/tutorial-plugins.html
+[contributing]: https://github.com/silvermine/silvermine-info#contributing
