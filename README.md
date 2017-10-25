@@ -46,9 +46,9 @@ After both Video.js and `silvermine-videojs-airplay` have loaded, follow the ste
 
 ### Configuration
 
-Once the plugin has been loaded and registered, configure it and add it to your Video.js
-player using Video.js' plugin configuration option (see the section under the heading
-"Setting up a Plugin" on [Video.js' plugin documentation page][videojs-docs].
+Once the plugin has been loaded and registered, add it to your Video.js player using
+Video.js' plugin configuration option (see the section under the heading "Setting up a
+Plugin" on [Video.js' plugin documentation page][videojs-docs].
 
 For example:
 
@@ -58,28 +58,16 @@ var options;
 options = {
    controls: true,
    plugins: {
-      airPlay: {
-         buttonText: 'AirPlay',
-      }
+      airPlay: {}
    }
 };
 
 videojs(document.getElementById('myVideoElement'), options);
 ```
 
-Please note that even if you choose not to use any of the configuration options, you must
-either provide an `airPlay` entry in the `plugins` option for Video.js to initialize the
-plugin for you:
-
-```js
-options = {
-   plugins: {
-      airPlay: {}
-   }
-};
-```
-
-or you must initialize the plugin manually:
+Even though there are no configuration options, to enable the plugin you must either
+provide an `airPlay` entry in the `plugins` option as shown above or you must call the
+`airPlay` plugin function manually:
 
 ```js
 var player = videojs(document.getElementById('myVideoElement'));
@@ -87,10 +75,14 @@ var player = videojs(document.getElementById('myVideoElement'));
 player.airPlay(); // initializes the AirPlay plugin
 ```
 
-#### Configuration options
+#### Localization
 
-* **`buttonText`** - the text to display inside of the button component. The text defaults
-to "AirPlay" and is used for accessibility purposes, so it is visually hidden by default.
+The `AirPlayButton` component has one translated string: "Start AirPlay". The "Start AirPlay" string appears
+in both of the standard places for Button component accessibility text: inside the `.vjs-control-text` span
+and as the `<button>` element's `title` attribute.
+
+To localize the AirPlay button text, follow the steps in the [Video.js Languages tutorial][videojs-docs]
+to add a `"Start AirPlay"` key to the map of translation strings.
 
 ### Using the npm module
 

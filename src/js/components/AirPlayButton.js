@@ -26,35 +26,16 @@ AirPlayButton = {
     *
     * @constructs
     * @extends external:Button
-    * @param options {object} the options to use for configuration
     */
-   constructor: function(options) {
-      // TODO internationalization
-      this._buttonText = options.buttonText || 'AirPlay';
-
+   constructor: function() {
       this.constructor.super_.apply(this, arguments);
 
       if (!hasAirPlayAPISupport()) {
          this.hide();
       }
 
+      this.controlText('Start AirPlay');
       this._reactToAirPlayAvailableEvents();
-   },
-
-   /**
-    * Overrides Button#createControlTextEl to create the DOM element that contains the
-    * text within the button that is used for accessibility.
-    *
-    * @param {DOMElement} el
-    * @see {@link http://docs.videojs.com/Button.html#createControlTextEl|Button#createControlTextEl}
-    */
-   createControlTextEl: function(el) {
-      var textEl = document.createElement('span');
-
-      textEl.innerHTML = this._buttonText;
-      textEl.className = 'vjs-control-text';
-
-      el.appendChild(textEl);
    },
 
    /**
