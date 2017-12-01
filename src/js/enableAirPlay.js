@@ -4,7 +4,8 @@
  * @module enableAirPlay
  */
 
-var hasAirPlayAPISupport = require('./lib/hasAirPlayAPISupport');
+var hasAirPlayAPISupport = require('./lib/hasAirPlayAPISupport'),
+    _ = require('underscore');
 
 /**
  * @private
@@ -25,7 +26,7 @@ function getExistingAirPlayButton(player) {
 function ensureAirPlayButtonExists(player, options) {
    var existingAirPlayButton = getExistingAirPlayButton(player);
 
-   if (!existingAirPlayButton) {
+   if (options.addButtonToControlBar && !existingAirPlayButton) {
       player.controlBar.addChild('airPlayButton', options);
    }
 }
@@ -92,9 +93,11 @@ function enableAirPlay(player, options) {
  */
 module.exports = function(videojs) {
    videojs.registerPlugin('airPlay', function(options) {
+      var pluginOptions = _.extend({ addButtonToControlBar: true }, options || {});
+
       // `this` is an instance of a Video.js Player.
       // Wait until the player is "ready" so that the player's control bar component has
       // been created.
-      this.ready(enableAirPlay.bind(this, this, options || {}));
+      this.ready(enableAirPlay.bind(this, this, pluginOptions));
    });
 };
