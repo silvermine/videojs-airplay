@@ -48,7 +48,12 @@ After both Video.js and `silvermine-videojs-airplay` have loaded, follow the ste
 
 Once the plugin has been loaded and registered, add it to your Video.js player using
 Video.js' plugin configuration option (see the section under the heading "Setting up a
-Plugin" on [Video.js' plugin documentation page][videojs-docs].
+Plugin" on [Video.js' plugin documentation page][videojs-docs]. Use these options to
+configure the plugin:
+
+* **`plugins.airPlay.addButtonToControlBar`** - a `boolean` flag that tells the plugin
+  whether or not it should automatically add the AirPlay button to the Video.js
+  player's control bar component. Defaults to `true`.
 
 For example:
 
@@ -58,7 +63,9 @@ var options;
 options = {
    controls: true,
    plugins: {
-      airPlay: {}
+      airPlay: {
+         addButtonToControlBar: false, // defaults to `true`
+      }
    }
 };
 
@@ -118,7 +125,7 @@ image files:
   `"images/ic_airplay_white_24px.svg"`.
 * **`$icon-airplay--hover`** - the path to the icon image that is displayed when the user
   hovers over the AirPlay button. Defaults to `"images/ic_airplay_white_24px.svg"`.
-* **``$airplay-icon-size`** - the width and height of the icon (the button and icon is a
+* **`$airplay-icon-size`** - the width and height of the icon (the button and icon is a
   square). Defaults to `12px`.
 
 #### Images
