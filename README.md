@@ -11,6 +11,11 @@
 A plugin for [Video.js](http://videojs.com/) versions 6+ that adds a button to the control
 bar that will open the AirPlay menu if it is available on the user's device.
 
+_NOTE: there is a [`videojs-airplay`](https://www.npmjs.com/package/videojs-airplay)
+package that is in no way associated with `@silvermine/videojs-airplay`. The
+`videojs-airplay` module appears to only support VideoJS version 5.x, whereas our
+`@silvermine/videojs-airplay` module supports VideoJS 6.x._
+
 ## How do I use it?
 
 The `@silvermine/videojs-airplay` plugin includes 3 types of assets: javascript, CSS and
