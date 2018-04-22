@@ -34,13 +34,13 @@ module.exports = function(grunt) {
    };
 
    config.dist.js = {
-      bundle: join(config.dist.base, '<%= pkg.name %>.js'),
-      minified: join(config.dist.base, '<%= pkg.name %>.min.js'),
+      bundle: join(config.dist.base, 'silvermine-videojs-airplay.js'),
+      minified: join(config.dist.base, 'silvermine-videojs-airplay.min.js'),
    };
 
    config.dist.css = {
       base: config.dist.base,
-      main: join(config.dist.base, '<%= pkg.name %>.css'),
+      main: join(config.dist.base, 'silvermine-videojs-airplay.css'),
    };
 
    config.dist.images = join(config.dist.base, 'images');

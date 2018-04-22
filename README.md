@@ -13,7 +13,7 @@ bar that will open the AirPlay menu if it is available on the user's device.
 
 ## How do I use it?
 
-The `silvermine-videojs-airplay` plugin includes 3 types of assets: javascript, CSS and
+The `@silvermine/videojs-airplay` plugin includes 3 types of assets: javascript, CSS and
 images.
 
 You can either build the plugin locally and use the assets that are output from the build
@@ -23,12 +23,12 @@ process, and copy the images from the image source folder to your project.
 
 ### Building the plugin locally
 
-   1. Either clone this repository or install the `silvermine-videojs-airplay` module
-      using `npm install silvermine-videojs-airplay`.
-   2. Ensure that `silvermine-videojs-airplay`'s `devDependencies` are installed by
-      running `npm install` from within the `silvermine-videojs-airplay` folder.
+   1. Either clone this repository or install the `@silvermine/videojs-airplay` module
+      using `npm install @silvermine/videojs-airplay`.
+   2. Ensure that the project's `devDependencies` are installed by running `npm install`
+      from within the folder you cloned or installed the project.
    3. Run `grunt build` to build and copy the javascript, CSS and image files to the
-      `silvermine-videojs-airplay/dist` folder.
+      `dist` folder.
    4. Copy the plugin's files from the `dist` folder into your project as needed.
    5. Ensure that the images in the `dist/images` folder are accessible at `./images/`,
       relative to where the plugin's CSS is located. If, for example, your CSS is located
@@ -40,7 +40,7 @@ videojs-airplay.min.js` javascript file in your HTML *after* loading Video.js. T
 plugin's built javascript file expects there to be a reference to Video.js at
 `window.videojs` and will throw an error if it does not exist.
 
-After both Video.js and `silvermine-videojs-airplay` have loaded, follow the steps in the
+After both Video.js and `@silvermine/videojs-airplay` have loaded, follow the steps in the
 "Configuration" section below.
 
 
@@ -94,16 +94,17 @@ to add a `"Start AirPlay"` key to the map of translation strings.
 ### Using the npm module
 
 If you are using a module loader such as Browserify or Webpack, first install
-`silvermine-videojs-airplay` using `npm install`. Then, use
-`require('silvermine-videojs-airplay')` to require `silvermine-videojs-airplay` into your
-project's source code. `require('silvermine-videojs-airplay')` returns a function that
-you can use to register the plugin with videojs by passing in a reference to `videojs`:
+`@silvermine/videojs-airplay` using `npm install`. Then, use
+`require('@silvermine/videojs-airplay')` to require `@silvermine/videojs-airplay` into
+your project's source code. `require('@silvermine/videojs-airplay')` returns a function
+that you can use to register the plugin with videojs by passing in a reference to
+`videojs`:
 
 ```js
    var videojs = require('video.js');
 
    // Initialize the AirPlay plugin
-   require('silvermine-videojs-airplay')(videojs);
+   require('@silvermine/videojs-airplay')(videojs);
 ```
 
 Then, follow the steps in the "Configuration" section above.
@@ -114,7 +115,7 @@ If you are using SCSS in your project, you can simply reference the plugin's mai
 file in your project's SCSS:
 
 ```scss
-@import "path/to/node_modules/silvermine-videojs-airplay/src/scss/videojs-airplay";
+@import "path/to/node_modules/@silvermine/videojs-airplay/src/scss/videojs-airplay";
 ```
 
 Optionally, you can override the SCSS variables that contain the paths to the icon
@@ -130,7 +131,7 @@ image files:
 
 #### Images
 
-The plugin's images are located at `silvermine-videojs-airplay/src/images`. If you have
+The plugin's images are located at `@silvermine/videojs-airplay/src/images`. If you have
 not overridden the icon image path variables in the SCSS, then copy the images from the
 `src/images` folder to a folder that is accessible at `./images/`, relative to where the
 plugin's CSS is located. If, for example, your CSS is located at
