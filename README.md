@@ -1,9 +1,9 @@
 # Silvermine Video.js AirPlay Plugin
 
-[![Build Status](https://travis-ci.org/silvermine/videojs-airplay.png?branch=master)](https://travis-ci.org/silvermine/videojs-airplay)
+[![Build Status](https://travis-ci.org/silvermine/videojs-airplay.svg?branch=master)](https://travis-ci.org/silvermine/videojs-airplay)
 [![Coverage Status](https://coveralls.io/repos/github/silvermine/videojs-airplay/badge.svg?branch=master)](https://coveralls.io/github/silvermine/videojs-airplay?branch=master)
-[![Dependency Status](https://david-dm.org/silvermine/videojs-airplay.png)](https://david-dm.org/silvermine/videojs-airplay)
-[![Dev Dependency Status](https://david-dm.org/silvermine/videojs-airplay/dev-status.png)](https://david-dm.org/silvermine/videojs-airplay#info=devDependencies&view=table)
+[![Dependency Status](https://david-dm.org/silvermine/videojs-airplay.svg)](https://david-dm.org/silvermine/videojs-airplay)
+[![Dev Dependency Status](https://david-dm.org/silvermine/videojs-airplay/dev-status.svg)](https://david-dm.org/silvermine/videojs-airplay#info=devDependencies&view=table)
 
 
 ## What is it?
