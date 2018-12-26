@@ -50,7 +50,7 @@
     "sinon": "2.3.5"
   },
   "peerDependencies": {
-    "video.js": "6.x"
+    "video.js": ">= 6.0.0"
   },
   "dependencies": {
     "underscore": "1.8.3"
