@@ -4,7 +4,7 @@
   "description": "video.js plugin for casting to airplay",
   "main": "src/js/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec 'tests/**/*.test.js'",
+    "test": "check-node-version --npm 6.13.4 && ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec 'tests/**/*.test.js'",
     "prepublish": "grunt build"
   },
   "author": "Jeremy Thomerson",
@@ -30,6 +30,7 @@
     "@silvermine/eslint-config": "1.5.0",
     "@silvermine/sass-lint-config": "1.1.0",
     "autoprefixer": "7.1.1",
+    "check-node-version": "4.0.2",
     "coveralls": "3.0.2",
     "eslint": "4.0.0",
     "expect.js": "0.3.1",
