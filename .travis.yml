@@ -9,6 +9,7 @@ node_js:
 before_install: npm i -g npm@6.13.4
 
 script:
+   - commitlint-travis
    - grunt standards
    - npm test
 
