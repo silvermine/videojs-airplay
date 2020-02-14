@@ -6,6 +6,7 @@
 
 var path = require('path'),
     getCodeVersion = require('silvermine-serverless-utils/src/get-code-version'),
+    nodeSass = require('node-sass'),
     join = path.join.bind(path);
 
 module.exports = function(grunt) {
@@ -115,6 +116,7 @@ module.exports = function(grunt) {
          },
          options: {
             sourceMap: DEBUG,
+            implementation: nodeSass,
             indentWidth: 3,
             outputStyle: DEBUG ? 'expanded' : 'compressed',
             sourceComments: DEBUG,
