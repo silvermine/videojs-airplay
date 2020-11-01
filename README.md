@@ -59,6 +59,12 @@ configure the plugin:
 * **`plugins.airPlay.addButtonToControlBar`** - a `boolean` flag that tells the plugin
   whether or not it should automatically add the AirPlay button to the Video.js
   player's control bar component. Defaults to `true`.
+* **`plugins.airPlay.buttonPositionIndex`** - a zero-based number specifying the index
+  of the AirPlay button among the control bar's child components (if
+  `addButtonToControlBar` is set to `true`). By default the AirPlay Button is added as
+  the last child of the control bar. A value less than 0 puts the button at the specified
+  position from the end of the control bar. Note that it's likely not all child components
+  of the control bar are visible.
 
 For example:
 
