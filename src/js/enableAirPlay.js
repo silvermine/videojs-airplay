@@ -93,7 +93,7 @@ function enableAirPlay(player, options) {
  */
 module.exports = function(videojs) {
    videojs.registerPlugin('airPlay', function(options) {
-      var pluginOptions = _.extend({ addButtonToControlBar: true }, options || {});
+      var pluginOptions = _.extend({ addButtonToControlBar: true, autoPlayOnTargetChange: false }, options || {});
 
       // `this` is an instance of a Video.js Player.
       // Wait until the player is "ready" so that the player's control bar component has
