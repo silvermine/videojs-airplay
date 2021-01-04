@@ -96,6 +96,10 @@ AirPlayButton = {
             self.hide();
          }
       });
+
+      mediaEl.addEventListener('webkitcurrentplaybacktargetiswirelesschanged', function(e) {
+         self.player().play();
+      });
    },
 };
 
