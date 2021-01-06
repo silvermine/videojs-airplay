@@ -60,6 +60,10 @@ configure the plugin:
   whether or not it should automatically add the AirPlay button to the Video.js
   player's control bar component. Defaults to `true`.
 
+* **`plugins.airPlay.autoPlayOnTargetChange`** - a `boolean` flag that tells the plugin
+  whether or not it should automatically start playing after airplay target has changed.
+
+
 For example:
 
 ```js
@@ -70,6 +74,7 @@ options = {
    plugins: {
       airPlay: {
          addButtonToControlBar: false, // defaults to `true`
+         autoPlayOnTargetChange: true, //defaults to `false`
       }
    }
 };
