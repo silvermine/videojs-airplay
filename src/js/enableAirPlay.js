@@ -4,8 +4,7 @@
  * @module enableAirPlay
  */
 
-var hasAirPlayAPISupport = require('./lib/hasAirPlayAPISupport'),
-    _ = require('underscore');
+var hasAirPlayAPISupport = require('./lib/hasAirPlayAPISupport');
 
 /**
  * @private
@@ -93,7 +92,7 @@ function enableAirPlay(player, options) {
  */
 module.exports = function(videojs) {
    videojs.registerPlugin('airPlay', function(options) {
-      var pluginOptions = _.extend({ addButtonToControlBar: true }, options || {});
+      var pluginOptions = Object.assign({ addButtonToControlBar: true }, options || {});
 
       // `this` is an instance of a Video.js Player.
       // Wait until the player is "ready" so that the player's control bar component has
