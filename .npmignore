@@ -3,3 +3,5 @@
 Gruntfile.js
 tests/**
 docs
+coverage
+.nyc_output
