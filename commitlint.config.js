@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = { extends: [ '@silvermine/eslint-config/commitlint' ] };
+module.exports = { extends: [ '@silvermine/standardization/commitlint' ] };
