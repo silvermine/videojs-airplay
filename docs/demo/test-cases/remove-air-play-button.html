@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset=utf-8 />
+   <title>silvermine-videojs-airplay Demo</title>
+   <link href="https://unpkg.com/video.js@7.4.1/dist/video-js.css" rel="stylesheet">
+   <script src="https://unpkg.com/video.js@7.4.1/dist/video.js"></script>
+   <script src="../../../dist/silvermine-videojs-airplay.min.js"></script>
+   <link href="../../../dist/silvermine-videojs-airplay.css" rel="stylesheet">
+</head>
+<body>
+   <h1><a href="https://github.com/silvermine/videojs-airplay/issues/29">#29</a> Removing/disposing of the AirPlay button</h1>
+
+   <p>
+      When the AirPlay button is programmatically removed from the player, this plugin should remove the event listeners
+      that it registered outside of its own scope (e.g. on the player's media element). If this test case is failing, you
+      will see an error or warning in the console when you click the "Remove AirPlay Button" button.
+   </p>
+
+   <video id="video_1" class="video-js vjs-default-skin" controls preload="auto">
+      <source src="http://www.caminandes.com/download/03_caminandes_llamigos_1080p.mp4" type="video/mp4">
+   </video>
+
+   <button id="removeBtn" onclick="removeAirPlayButton()">Remove AirPlay Button</button>
+
+   <script>
+      var options;
+
+      options = {
+         fluid: true,
+      };
+
+      var player = videojs('video_1', options, function() {
+         player.airPlay();
+      });
+
+      removeAirPlayButton = function() {
+         var airPlayButton = player.controlBar.getChild('airPlayButton');
+
+         airPlayButton.dispose();
+         document.getElementById('removeBtn').disabled = true;
+
+         player.load();
+      };
+   </script>
+
+</body>
+</html>

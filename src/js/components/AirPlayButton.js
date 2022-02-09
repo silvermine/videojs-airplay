@@ -89,12 +89,17 @@ AirPlayButton = {
          return;
       }
 
-      mediaEl.addEventListener('webkitplaybacktargetavailabilitychanged', function(event) {
+      function onTargetAvailabilityChanged(event) {
          if (event.availability === 'available') {
             self.show();
          } else {
             self.hide();
          }
+      }
+
+      mediaEl.addEventListener('webkitplaybacktargetavailabilitychanged', onTargetAvailabilityChanged);
+      this.on('dispose', function() {
+         mediaEl.removeEventListener('webkitplaybacktargetavailabilitychanged', onTargetAvailabilityChanged);
       });
    },
 };
