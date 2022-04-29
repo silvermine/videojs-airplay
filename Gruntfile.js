@@ -69,10 +69,6 @@ module.exports = function(grunt) {
          },
       },
 
-      eslint: {
-         target: config.js.all,
-      },
-
       browserify: {
          standalone: {
             src: config.js.standalone,
@@ -94,13 +90,6 @@ module.exports = function(grunt) {
                beautify: !DEBUG,
             },
          },
-      },
-
-      stylelint: {
-         options: {
-            configFile: join(__dirname, 'node_modules', '@silvermine', 'standardization', '.stylelintrc.yml'),
-         },
-         src: config.sass.all,
       },
 
       sass: {
@@ -159,16 +148,13 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-contrib-watch');
    grunt.loadNpmTasks('grunt-browserify');
    grunt.loadNpmTasks('grunt-contrib-copy');
-   grunt.loadNpmTasks('grunt-eslint');
    grunt.loadNpmTasks('grunt-sass');
    grunt.loadNpmTasks('grunt-postcss');
-   grunt.loadNpmTasks('grunt-stylelint');
 
-   grunt.registerTask('standards', [ 'eslint', 'stylelint' ]);
    grunt.registerTask('build-js', [ 'browserify', 'uglify' ]);
    grunt.registerTask('build-css', [ 'sass', 'postcss:styles' ]);
    grunt.registerTask('build', [ 'build-js', 'build-css', 'copy:images' ]);
    grunt.registerTask('develop', [ 'build', 'watch' ]);
-   grunt.registerTask('default', [ 'standards' ]);
+   grunt.registerTask('default', [ 'build' ]);
 
 };

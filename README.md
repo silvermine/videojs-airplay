@@ -41,7 +41,7 @@ process, and copy the images from the image source folder to your project.
       images should be located at `https://example.com/plugins/images/`.
 
 Note: when adding the plugin's javascript to your web page, include the `silvermine-
-videojs-airplay.min.js` javascript file in your HTML *after* loading Video.js. The
+videojs-airplay.min.js` javascript file in your HTML _after_ loading Video.js. The
 plugin's built javascript file expects there to be a reference to Video.js at
 `window.videojs` and will throw an error if it does not exist.
 
@@ -56,15 +56,15 @@ Video.js' plugin configuration option (see the section under the heading "Settin
 Plugin" on [Video.js' plugin documentation page][videojs-docs]. Use these options to
 configure the plugin:
 
-* **`plugins.airPlay.addButtonToControlBar`** - a `boolean` flag that tells the plugin
-  whether or not it should automatically add the AirPlay button to the Video.js
-  player's control bar component. Defaults to `true`.
-* **`plugins.airPlay.buttonPositionIndex`** - a zero-based number specifying the index
-  of the AirPlay button among the control bar's child components (if
-  `addButtonToControlBar` is set to `true`). By default the AirPlay Button is added as
-  the last child of the control bar. A value less than 0 puts the button at the specified
-  position from the end of the control bar. Note that it's likely not all child components
-  of the control bar are visible.
+   * **`plugins.airPlay.addButtonToControlBar`** - a `boolean` flag that tells the plugin
+     whether or not it should automatically add the AirPlay button to the Video.js
+     player's control bar component. Defaults to `true`.
+   * **`plugins.airPlay.buttonPositionIndex`** - a zero-based number specifying the index
+     of the AirPlay button among the control bar's child components (if
+     `addButtonToControlBar` is set to `true`). By default the AirPlay Button is added as
+     the last child of the control bar. A value less than 0 puts the button at the specified
+     position from the end of the control bar. Note that it's likely not all child components
+     of the control bar are visible.
 
 For example:
 
@@ -95,9 +95,9 @@ player.airPlay(); // initializes the AirPlay plugin
 
 #### Localization
 
-The `AirPlayButton` component has one translated string: "Start AirPlay". The "Start AirPlay" string appears
-in both of the standard places for Button component accessibility text: inside the `.vjs-control-text` span
-and as the `<button>` element's `title` attribute.
+The `AirPlayButton` component has one translated string: "Start AirPlay". The "Start
+AirPlay" string appears in both of the standard places for Button component accessibility
+text: inside the `.vjs-control-text` span and as the `<button>` element's `title` attribute.
 
 To localize the AirPlay button text, follow the steps in the [Video.js Languages tutorial][videojs-docs]
 to add a `"Start AirPlay"` key to the map of translation strings.
@@ -132,13 +132,13 @@ file in your project's SCSS:
 Optionally, you can override the SCSS variables that contain the paths to the icon
 image files:
 
-* **`$icon-airplay--default`** - the path to the icon image that is displayed when the
-  AirPlay button is in its normal, default state. Defaults to
-  `"images/ic_airplay_white_24px.svg"`.
-* **`$icon-airplay--hover`** - the path to the icon image that is displayed when the user
-  hovers over the AirPlay button. Defaults to `"images/ic_airplay_white_24px.svg"`.
-* **`$airplay-icon-size`** - the width and height of the icon (the button and icon is a
-  square). Defaults to `12px`.
+   * **`$icon-airplay--default`** - the path to the icon image that is displayed when the
+     AirPlay button is in its normal, default state. Defaults to
+     `"images/ic_airplay_white_24px.svg"`.
+   * **`$icon-airplay--hover`** - the path to the icon image that is displayed when the user
+     hovers over the AirPlay button. Defaults to `"images/ic_airplay_white_24px.svg"`.
+   * **`$airplay-icon-size`** - the width and height of the icon (the button and icon is a
+     square). Defaults to `12px`.
 
 #### Images
 
