@@ -1,13 +1,12 @@
+dist: focal
 language: node_js
 node_js:
-   # TODO: Re-enable when Travis CI fixes image dependency problems
-   # See: https://github.com/silvermine/standardization/issues/39
-   # - "node" # Latest node version
+   - "node" # Latest node version
    - "lts/*" # Latest LTS version
    - "14"
    - "12"
 
-before_install: npm i -g npm@6.14.12
+before_install: npm i -g npm@8.5.5
 
 script:
    - commitlint-travis
