@@ -27,15 +27,26 @@ AirPlayButton = {
     * @constructs
     * @extends external:Button
     */
-   constructor: function() {
+   constructor: function(player, options) {
       this.constructor.super_.apply(this, arguments);
 
       if (!hasAirPlayAPISupport()) {
          this.hide();
       }
 
-      this.controlText('Start AirPlay');
       this._reactToAirPlayAvailableEvents();
+
+      if (options.addAirPlayLabelToButton) {
+         this.el().classList.add('vjs-airplay-button-lg');
+
+         this._labelEl = document.createElement('span');
+         this._labelEl.classList.add('vjs-airplay-button-label');
+         this._labelEl.textContent = this.localize('AirPlay');
+
+         this.el().appendChild(this._labelEl);
+      } else {
+         this.controlText('Start AirPlay');
+      }
    },
 
    /**
