@@ -6,8 +6,8 @@
 
 var path = require('path'),
     getCodeVersion = require('silvermine-serverless-utils/src/get-code-version'),
-    sass = require('sass'),
-    join = path.join.bind(path);
+    join = path.join.bind(path),
+    sass = require('sass');
 
 module.exports = function(grunt) {
 
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
    config = {
       js: {
          all: [ 'Gruntfile.js', 'src/**/*.js', 'tests/**/*.js' ],
-         standalone: join(__dirname, 'src', 'js', 'standalone.js'),
+         browserMainFile: join('src', 'js', 'standalone.js'),
       },
 
       sass: {
@@ -70,9 +70,29 @@ module.exports = function(grunt) {
       },
 
       browserify: {
-         standalone: {
-            src: config.js.standalone,
+         main: {
+            src: config.js.browserMainFile,
             dest: config.dist.js.bundle,
+            options: {
+               transform: [
+                  [
+                     'babelify',
+                     {
+                        presets: [
+                           [
+                              '@babel/preset-env',
+                              {
+                                 debug: true,
+                                 useBuiltIns: 'usage',
+                                 shippedProposals: true,
+                                 corejs: 3,
+                              },
+                           ],
+                        ],
+                     },
+                  ],
+               ],
+            },
          },
       },
 
