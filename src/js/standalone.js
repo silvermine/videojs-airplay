@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * This module is used as an entry point for the build system to bundle this plugin into a
  * single javascript file that can be loaded by a script tag on a web page. The javascript
