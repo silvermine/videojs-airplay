@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [our coding standards][commit-messages] for commit guidelines.
 
+## [1.3.0](https://github.com/silvermine/videojs-airplay/compare/v1.2.0...v1.3.0) (2023-11-15)
+
+
+### Bug Fixes
+
+* remove deprecated `.extend` method ([1e4aa2a](https://github.com/silvermine/videojs-airplay/commit/1e4aa2a5980ca843e92efc7165a67908be2843d0))
+
+
 ## [1.2.0](https://github.com/silvermine/videojs-airplay/compare/v1.1.0...v1.2.0) (2023-03-21)
 
 
