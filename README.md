@@ -1,10 +1,11 @@
 # Silvermine Video.js AirPlay Plugin
 
+<!-- markdownlint-disable line-length -->
 [![Build Status](https://travis-ci.org/silvermine/videojs-airplay.svg?branch=master)](https://travis-ci.org/silvermine/videojs-airplay)
 [![Coverage Status](https://coveralls.io/repos/github/silvermine/videojs-airplay/badge.svg?branch=master)](https://coveralls.io/github/silvermine/videojs-airplay?branch=master)
 [![Dependency Status](https://david-dm.org/silvermine/videojs-airplay.svg)](https://david-dm.org/silvermine/videojs-airplay)
 [![Dev Dependency Status](https://david-dm.org/silvermine/videojs-airplay/dev-status.svg)](https://david-dm.org/silvermine/videojs-airplay#info=devDependencies&view=table)
-
+<!-- markdownlint-enable line-length -->
 
 ## What is it?
 
@@ -62,12 +63,12 @@ configure the plugin:
    * **`plugins.airPlay.buttonPositionIndex`** - a zero-based number specifying the index
      of the AirPlay button among the control bar's child components (if
      `addButtonToControlBar` is set to `true`). By default the AirPlay Button is added as
-     the last child of the control bar. A value less than 0 puts the button at the specified
-     position from the end of the control bar. Note that it's likely not all child components
-     of the control bar are visible.
-   * **`plugins.airPlay.addAirPlayLabelToButton`** (default: `false`) - by default, the AirPlay
-     button component will display only an icon. Setting `addAirPlayLabelToButton` to `true`
-     will display a label titled `"AirPlay"` alongside the default icon.
+     the last child of the control bar. A value less than 0 puts the button at the
+     specified position from the end of the control bar. Note that it's likely not all
+     child components of the control bar are visible.
+   * **`plugins.airPlay.addAirPlayLabelToButton`** (default: `false`) - by default, the
+     AirPlay button component will display only an icon. Setting `addAirPlayLabelToButton`
+     to `true` will display a label titled `"AirPlay"` alongside the default icon.
 
 For example:
 
@@ -100,13 +101,15 @@ player.airPlay(); // initializes the AirPlay plugin
 
 The `AirPlayButton` component has two translated strings: "Start AirPlay" and "AirPlay".
 
-   * The "Start AirPlay" string appears in both of the standard places for Button component
-     text: inside the `.vjs-control-text` span and as the `<button>` element's `title` attribute.
+   * The "Start AirPlay" string appears in both of the standard places for Button
+     component text: inside the `.vjs-control-text` span and as the `<button>` element's
+     `title` attribute.
    * The "AirPlay" string appears in an optional label within the Button component: inside
      the `.vjs-airplay-button-label` span.
 
-To localize the AirPlay button text, follow the steps in the [Video.js Languages tutorial][videojs-docs]
-to add `"Start AirPlay"` and `"AirPlay"` keys to the map of translation strings.
+To localize the AirPlay button text, follow the steps in the [Video.js Languages
+tutorial][videojs-docs] to add `"Start AirPlay"` and `"AirPlay"` keys to the map of
+translation strings.
 
 ### Using the npm module
 
@@ -126,6 +129,17 @@ that you can use to register the plugin with videojs by passing in a reference t
 
 Then, follow the steps in the "Configuration" section above.
 
+> [!WARNING]
+> This plugin's source code uses ES6+ syntax and keywords, such as `class` and `static`.
+> If you need to support [browsers that do not support newer JavaScript
+> syntax](https://caniuse.com/es6), you will need to use a tool like
+> [Babel](https://babeljs.io/) to transpile and polyfill your code.
+>
+> Alternatively, you can
+> `require('@silvermine/videojs-airplay/dist/silvermine-videojs-airplay.js')`
+> to use a JavaScript file that has already been polyfilled/transpiled down to ES5
+> compatibility.
+
 ### Using the CSS and images
 
 If you are using SCSS in your project, you can simply reference the plugin's main SCSS
@@ -141,8 +155,9 @@ image files:
    * **`$icon-airplay--default`** - the path to the icon image that is displayed when the
      AirPlay button is in its normal, default state. Defaults to
      `"images/ic_airplay_white_24px.svg"`.
-   * **`$icon-airplay--hover`** - the path to the icon image that is displayed when the user
-     hovers over the AirPlay button. Defaults to `"images/ic_airplay_white_24px.svg"`.
+   * **`$icon-airplay--hover`** - the path to the icon image that is displayed when the
+     user hovers over the AirPlay button. Defaults to
+     `"images/ic_airplay_white_24px.svg"`.
    * **`$airplay-icon-size`** - the width and height of the icon (the button and icon is a
      square). Defaults to `12px`.
 

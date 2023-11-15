@@ -1,5 +1,3 @@
-'use strict';
-
 var hasAirPlayAPISupport = require('../lib/hasAirPlayAPISupport');
 
 /**
