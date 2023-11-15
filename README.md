@@ -129,6 +129,17 @@ that you can use to register the plugin with videojs by passing in a reference t
 
 Then, follow the steps in the "Configuration" section above.
 
+> [!WARNING]
+> This plugin's source code uses ES6+ syntax and keywords, such as `class` and `static`.
+> If you need to support [browsers that do not support newer JavaScript
+> syntax](https://caniuse.com/es6), you will need to use a tool like
+> [Babel](https://babeljs.io/) to transpile and polyfill your code.
+>
+> Alternatively, you can
+> `require('@silvermine/videojs-airplay/dist/silvermine-videojs-airplay.js')`
+> to use a JavaScript file that has already been polyfilled/transpiled down to ES5
+> compatibility.
+
 ### Using the CSS and images
 
 If you are using SCSS in your project, you can simply reference the plugin's main SCSS
